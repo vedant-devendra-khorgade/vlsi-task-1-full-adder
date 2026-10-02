@@ -52,3 +52,45 @@ assign Sum = A ^ B ^ Cin;
 assign Cout = (A & B) | ((A ^ B) & Cin);
 
 endmodule
+
+## Testbench
+
+The testbench applies all 8 possible combinations of the three inputs A, B, and Cin.
+
+The simulation displays the resulting Sum and Cout values and generates a VCD waveform file for analysis using GTKWave.
+
+## How to Run
+1. Compile the Verilog Files
+iverilog -o full_adder_sim full_adder.v tb_full_adder.v
+2. Run the Simulation
+vvp full_adder_sim
+3. Open the Waveform
+gtkwave full_adder.vcd
+Expected Simulation Output
+A B Cin | Sum Cout
+0 0  0  |  0    0
+0 0  1  |  1    0
+0 1  0  |  1    0
+0 1  1  |  0    1
+1 0  0  |  1    0
+1 0  1  |  0    1
+1 1  0  |  0    1
+1 1  1  |  1    1
+Waveform
+
+The generated full_adder.vcd file can be opened in GTKWave to inspect the input and output signal transitions.
+
+The waveform contains the following signals:
+
+A
+B
+Cin
+Sum
+Cout
+Result
+
+The 1-bit full adder was successfully implemented, compiled, simulated, and verified for all 8 possible input combinations.
+
+Conclusion
+
+This task provided practical experience with Verilog HDL, testbench development, digital circuit simulation, VCD waveform generation, and waveform analysis using GTKWave.
